@@ -1,0 +1,17 @@
+﻿@model List<AzureStoragePOC.Controllers.BlobObject>
+
+<h1>Files</h1>
+<div class="row">
+    @foreach (var item in Model)
+    {
+    <div class="col-3">
+        <img src="@item.Url" alt="Alternate Text" width="200px" />
+        <h4 >@item.Name</h4>
+        <input type="button" class="alert-danger" value="Delete"
+               onclick="location.href='@Url.Action("Delete", "Home" , new { FileName = @item.Name})'" />
+        <input type="button" class="btn-dark" value="Download"
+               onclick="location.href='@Url.Action("Download", "Home" , new { FileName = @item.Url })'" />
+    </div>
+    }
+</div>
+
